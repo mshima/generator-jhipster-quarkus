@@ -105,3 +105,6 @@ jobs:
       - name: 'Run JHipster Application client tests'
         run: npm run ci:frontend:test
         working-directory: ${{ steps.setup.outputs.application-path }}
+      - name: 'Run JHipster Application client tests'
+        run: npm run ci:e2e:dev
+        working-directory: ${{ steps.setup.outputs.application-path }}
