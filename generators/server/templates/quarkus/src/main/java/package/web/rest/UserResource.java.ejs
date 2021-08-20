@@ -136,7 +136,7 @@ public class UserResource {
         } else {
             var newUser = userService.createUser(userDTO);
             mailService.sendCreationEmail(newUser);
-            Response.ResponseBuilder response = Response.created(fromPath("/api/users").path(newUser.login).build()).entity(newUser);
+            Response.ResponseBuilder response = Response.created(fromPath("/api/admin/users").path(newUser.login).build()).entity(newUser);
             HeaderUtil.createAlert(applicationName, "userManagement.created", newUser.login).forEach(response::header);
             return response.build();
         }
