@@ -75,6 +75,7 @@ module.exports = class extends ServerGenerator {
                 this.packageJson.merge({
                     scripts: {
                         'ci:backend:test': 'npm run backend:info && npm run backend:doc:test && npm run backend:unit:test',
+                        'ci:e2e:dev': `concurrently -k -s first "./${this.buildToolGradle ? 'gradlew' : 'mvnw'}" "npm run e2e:headless"`,
                     },
                 });
             },
